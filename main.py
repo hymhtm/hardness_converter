@@ -2,8 +2,10 @@ import flet as ft
 import numpy as np
 from updater import update_hardness_value, update_source_index
 import converter
+import ui_logging
 
 def main(page: ft.Page):
+    ui_logging.log_info("アプリケーションが起動しました")
     page.title = "Hardness Converter"
     page.appbar = ft.AppBar(
         leading=ft.Icon(ft.icons.CALCULATE),
@@ -13,16 +15,17 @@ def main(page: ft.Page):
             ft.IconButton(ft.icons.TABLE_CHART, on_click=lambda e: page.launch_url("https://www.iwata-fa.jp/html/technicaldata/tec_other_19.pdf"))
         ]
     )
+    ui_logging.log_info("アプリケーションのバーが設定されました")
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.window.border = True
     page.window.width = 500
     page.window.height = 700
-
+    ui_logging.log_info("アプリケーションのウィンドウが設定されました")
     # ミュータブルな変数をリストで定義
     hardness_value = [0.0]
     source_index = [0]
-
+    ui_logging.log_info("ミュータブルな変数が設定されました")
     # 硬度値入力フィールド
     page.add(ft.Text("硬度を入力してください"))
     hardness_input = ft.TextField(
@@ -31,7 +34,7 @@ def main(page: ft.Page):
         on_change=lambda e: update_hardness_value(e, hardness_value)
     )
     page.add(hardness_input)
-
+    ui_logging.log_info("硬度値入力フィールドが設定されました")
     # スケール選択ボタン
     slidebutton = ft.CupertinoSlidingSegmentedButton(
         selected_index=0, 
@@ -45,19 +48,20 @@ def main(page: ft.Page):
         ]
     )
     page.add(slidebutton)
-
+    ui_logging.log_info("スケール選択ボタンが設定されました")
     # 換算ボタン
     button = ft.FilledButton(
         text="換算", 
         on_click=lambda e: update_converted_values()
     )
     page.add(button)
-
+    ui_logging.log_info("換算ボタンが設定されました")
     # 結果表示用コンテナ
     result_container = ft.Container(width=400, height=200)
     page.add(result_container)
-
+    ui_logging.log_info("結果表示用コンテナが設定されました")
     def update_converted_values():
+        ui_logging.log_info("換算ボタンがクリックされました")
         try:
             # 現在の硬度値とスケールインデックスを取得
             value = hardness_value[0]
@@ -76,6 +80,7 @@ def main(page: ft.Page):
             page.update()
 
     def display_results(converted, container):
+        ui_logging.log_info("換算結果を表示します")
         # DataRow のリストを作成
         data_rows = []
         for unit, value in converted.items():
@@ -108,10 +113,11 @@ def main(page: ft.Page):
         # コンテナに DataTable を設定
         container.content = data_table
         page.update()
-
+        ui_logging.log_info("換算結果が表示されました")
     # ページを更新
     page.update()
 
 # Fletアプリケーションのエントリーポイント
 if __name__ == "__main__":
+    ui_logging.log_info("アプリケーションのエントリーポイントが実行されました")
     ft.app(target=main)

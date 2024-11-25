@@ -18,6 +18,7 @@ def log_warning(message):
 
 def log_debug(message):
     logger.debug(message)
+    
 
 def log_exception(ex):
     logger.exception(ex)
