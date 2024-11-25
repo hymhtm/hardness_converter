@@ -1,2 +1,27 @@
 /env
 /__pycache__
+**/build
+**/bin
+**/out
+**/target
+**/data
+**/DLLs
+**/Lib
+/Lib/site-packages
+
+# ローカルのファイル
+*.pyc
+*.pyo
+*.pyd
+
+# 実行時ファイル
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ログファイル
+*.log
+
+# flutter assets
+**/flutter_assets
