@@ -3,7 +3,6 @@ import streamlit as st
 
 import converter
 import ui_logging
-from updater import update_hardness_value, update_source_index
 
 def main():
     scale_list = ["HRC","HV","HBW","HS"]
