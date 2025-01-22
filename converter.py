@@ -1,8 +1,6 @@
 import numpy as np
 from scipy.interpolate import interp1d
 
-from converter_error import OutOfRangeError, NoUnitError
-
 """
 Hardness Conversion Scale
 

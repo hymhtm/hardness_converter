@@ -2,14 +2,12 @@ import numpy as np
 import streamlit as st
 
 import converter
-import ui_logging
 
 def main():
     scale_list = ["HRC","HV","HBW","HS"]
-    ui_logging.log_info("launching application")
     st.set_page_config(
         page_title="Hardness Converter",
-        page_icon="logo.png",
+        page_icon=":material/calculate:",
         layout="centered",
         initial_sidebar_state="auto",
         menu_items=None,
@@ -30,7 +28,6 @@ def main():
         HRC, HV, HBW, HS = st.columns(4, gap="medium")
         
     def calculate(hardness_input, source_scale):
-        ui_logging.log_info("calculate button clicked" )
         result_container.empty()
         try:
             hardness_input = int(hardness_input)
@@ -45,7 +42,6 @@ def main():
                 else:
                     st.write("データがありません")
         except Exception as e:
-            ui_logging.log_exception(e)
             st.write("換算に失敗しました。もう一度お試しください。")
         
 if __name__ == "__main__":
