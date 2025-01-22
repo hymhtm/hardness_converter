@@ -28,7 +28,7 @@ pip install -r requirements.txt
 1. リポジトリをクローンします。
 
 ```
-git clone https://github.com/yourusername/hardness_converter.git
+git clone https://github.com/hymhtm/hardness_converter.git
 cd hardness_converter
 ```
 
