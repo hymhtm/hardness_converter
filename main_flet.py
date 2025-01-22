@@ -21,6 +21,7 @@ def main(page: ft.Page):
     page.window.border = True
     page.window.width = 500
     page.window.height = 700
+    page.update()
     ui_logging.log_info("アプリケーションのウィンドウが設定されました")
     # ミュータブルな変数をリストで定義
     hardness_value = [0.0]
