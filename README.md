@@ -32,8 +32,6 @@ git clone https://github.com/yourusername/hardness_converter.git
 cd hardness_converter
 ```
 
-```
-
 2. 必要なパッケージをインストールします。
 
 ```
