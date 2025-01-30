@@ -30,7 +30,7 @@ def main():
     def calculate(hardness_input, source_scale):
         result_container.empty()
         try:
-            hardness_input = int(hardness_input)
+            hardness_input = float(hardness_input)
             source_index = scale_list.index(source_scale)
             converted_values = converter.convert_hardness_scale(hardness_input, source_index)
             with result_container:
